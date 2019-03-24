@@ -2,16 +2,11 @@
 # -*- coding: <UTF-8> -*-
 
 import requests
-import base64
-import os,time,datetime
+
+import os
 import sys
-from Crypto.Cipher import AES
-import json,ast
-import re
-import redis
 from ssrdao import *
-#r.set('name', 'zhangsan')
-#print((r['name']))
+
 def dao():
     ss=os.getcwd()
     print(ss)
@@ -35,22 +30,15 @@ def dao():
 
     decrypted_text=decrypted_text
 
-    mimi='MTg1LjEzMy4xOTMuMjA1Ojg4NjY6b3JpZ2luOnJjNDpwbGFpbjpiRzVqYmk1dmNtYy8/b2Jmc3BhcmFtPSZyZW1hcmtzPTVyU2I1cDJKNTUtMlFRJmdyb3VwPWJHNWpiaTV2Y21j'
     print(decrypted_text)
     rtt=decrypted_text.splitlines()
     print(len(rtt))
-
+'''所有的ssr数据解密后持续化操作'''
     for i in range(len(rtt)):
-    #tttt =base64.b64decode(decrypted_text)
-    #print(tttt)
+
         rtt[i]=re.sub("ssr://","",rtt[i])
         rtt[i]=re.sub("–","+",rtt[i])
         rtt[i]=re.sub("_","/",rtt[i])
-    # rtt[i]=zhenze(rtt[i])
-
-    # rtt[i]=str(base64.b64decode(rtt[i]))
-        #print(rtt[i][2:-1])
-    
         rtt[i]=parse_ssr(rtt[i])
         with open ('/home/cl/nginx-docker-cl/html/ssr.txt','a+') as tttt:
             print(str(rtt[i]),file=tttt)

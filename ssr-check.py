@@ -2,7 +2,11 @@ import requests
 from ssrdao import *
 from bs4 import BeautifulSoup
 import base64
-import json
+
+'''
+test only
+
+'''
 data_headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36'}
 res1=requests.get('https://github.com/dax309/ssrshare/blob/master/README.md',verify=False,data=data_headers,timeout=10)
 soup=BeautifulSoup(res1.text,'html.parser')
