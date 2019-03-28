@@ -33,7 +33,7 @@ def dao():
     print(decrypted_text)
     rtt=decrypted_text.splitlines()
     print(len(rtt))
-'''所有的ssr数据解密后持续化操作'''
+###所有的ssr数据解密后持续化操作###
     for i in range(len(rtt)):
 
         rtt[i]=re.sub("ssr://","",rtt[i])
